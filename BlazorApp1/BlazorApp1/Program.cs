@@ -12,7 +12,7 @@ namespace BlazorApp1
 			// Add services to the container.
 			builder.Services.AddRazorComponents()
 				.AddInteractiveServerComponents();
-			/*builder.Services.AddDbContext<AppDbContext>(options
+			builder.Services.AddDbContext<AppDbContext>(options
 =>
 			{
 				options.UseMySQL(builder.Configuration
@@ -21,7 +21,7 @@ namespace BlazorApp1
 				options.EnableSensitiveDataLogging();
 				options.EnableDetailedErrors();
 #endif
-			});*/
+			});
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.

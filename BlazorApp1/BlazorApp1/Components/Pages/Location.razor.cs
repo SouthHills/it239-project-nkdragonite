@@ -4,7 +4,7 @@ namespace BlazorApp1.Components.Pages
 {
 	public partial class Location
 	{
-		/*[Inject]
-		private AppDbContext DbContext { get; set; }*/
+		[Inject]
+		private AppDbContext DbContext { get; set; }
 	}
 }
