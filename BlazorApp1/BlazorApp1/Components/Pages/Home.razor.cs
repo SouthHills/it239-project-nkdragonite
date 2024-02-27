@@ -27,14 +27,7 @@ namespace BlazorApp1.Components.Pages
 				{
 					if(emp.Password == HashPwd(Password, emp.Salt))
 					{
-						if(emp.Permission == "CLevel")
-						{
-							//Go to location page
-						}
-						else
-						{
-							//Go to database page with location
-						}
+						//Send to Database page
 					}
 					else
 					{
