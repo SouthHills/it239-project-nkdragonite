@@ -9,11 +9,11 @@ namespace BlazorApp1.Components.Pages.Classes
 
 		[Key, Required, Column("EMPLOYEE_ID")]
 		public uint EmployeeId { get; set; }
-		[Required, Column("EMPLOYEE_FNAME")]
+		[Required, Column("EMPLOYEE_FN")]
 		public string FName { get; set; }
-		[Required, Column("EMPLOYEE_LNAME")]
+		[Required, Column("EMPLOYEE_LN")]
 		public string LName { get; set; }
-		[Required, Column("EMPLOYEE_PERMISSION")]
+		[Required, Column("EMPLOYEE_LEVEL")]
 		public string Permission { get; set; }
 		[Required, Column("LOCATION_ID")]
 		public Location Location { get; set; }

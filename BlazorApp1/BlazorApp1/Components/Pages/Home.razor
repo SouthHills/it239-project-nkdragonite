@@ -1,7 +1,7 @@
 ﻿@page "/"
 
 <PageTitle>Home</PageTitle>
-
+@inject NavigationManager NavigationManager
 <form onsubmit="VerifyLogin">
     <div class="log-in-container">
         <h1 id ="LogIn">Login</h1>
@@ -9,17 +9,31 @@
         <input id="username"/>
          <label id="password_label" for="password">Password</label>
         <input id="password"/>
-        <button type="submit" @onclick="() => LogIn()">Log In</button>
-
+        <button type="submit" @onclick="() => Login()">Log In</button>
+        @foreach(Classes.Part part in DbContext.Parts)
+        {
+            <p>part.Id</p>
+        }
 
     </div>
 </form>
 
 @code{
 
-    private async Task VerifyLogin()
+    private async Task Login()
     {
-        
+        string result = LogIn();
+        if(result == "correct")
+        {
+            if(Employee.Permission == "Floor")
+            {
+                NavigationManager.NavigateTo("Database");
+            }
+            else
+            {
+                NavigationManager.NavigateTo("EditableDatabase");
+            }
+        }
     }
 
 }

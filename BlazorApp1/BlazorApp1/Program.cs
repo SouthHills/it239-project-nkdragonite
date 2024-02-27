@@ -5,6 +5,10 @@ namespace BlazorApp1
 {
 	public class Program
 	{
+		public string Username { get; set; }
+		public int Location { get; set; }
+		public string Permission { get; set; }
+
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);

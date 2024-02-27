@@ -10,6 +10,7 @@ namespace BlazorApp1.Components.Pages
 		public string Username { get; set; }
 		public string Password { get; set; }
 		public const string PEPPER = "wPg,r;";
+		public Employee Employee { get; set; }
 		[Inject]
 		private AppDbContext DbContext { get; set; }
 		public static string HashPwd(string password, string salt)
@@ -21,13 +22,15 @@ namespace BlazorApp1.Components.Pages
 		}
 		public string LogIn()
 		{
+			return "correct";
 			foreach(Employee emp in DbContext.Employees)
 			{
 				if(emp.FName + " " + emp.LName == Username)
 				{
 					if(emp.Password == HashPwd(Password, emp.Salt))
 					{
-						//Send to Database page
+						Employee = emp;
+						return "correct";
 					}
 					else
 					{
