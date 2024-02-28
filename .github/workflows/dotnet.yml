@@ -21,10 +21,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
-   # - name: Restore dependencies
-   #   run: dotnet restore BlazorApp1
+    - name: Restore dependencies
+      run: dotnet restore BlazorApp1
     - name: Build
-      run: dotnet build BlazorApp1/BlazorApp1.sln
+      run: dotnet build --no-restore BlazorApp1/BlazorApp1.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
