@@ -24,6 +24,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./Blazor1/Blazor1.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore ./Blazor1/Blazor1.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish ./Blazor/Blazor1.sln
+    - name: Deploy
+      uses: azure/webapps-deploy@v3
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+        package: './Blazor1/Blazor1/bin/Release/net8.0/publish'
