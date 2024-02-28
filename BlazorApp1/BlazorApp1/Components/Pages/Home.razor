@@ -10,14 +10,14 @@
          <label id="password_label" for="password">Password</label>
         <input id="password"/>
         <button type="submit" @onclick="() => Login()">Log In</button>
-        @foreach(Classes.Part part in DbContext.Parts)
-        {
-            <p>part.Id</p>
-        }
+        
 
     </div>
 </form>
-
+@foreach (Classes.Part part in DbContext.Parts)
+{
+    <p>part.Id</p>
+}
 @code{
 
     private async Task Login()

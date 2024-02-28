@@ -8,7 +8,7 @@ namespace BlazorApp1.Components.Pages.Classes
 	{
 
 		[Key, Required, Column("EMPLOYEE_ID")]
-		public uint EmployeeId { get; set; }
+		public string EmployeeId { get; set; }
 		[Required, Column("EMPLOYEE_FN")]
 		public string FName { get; set; }
 		[Required, Column("EMPLOYEE_LN")]

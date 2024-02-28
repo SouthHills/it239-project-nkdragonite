@@ -7,7 +7,7 @@ namespace BlazorApp1.Components.Pages.Classes
 	public class Part
 	{
 		[Key, Required, Column("Part_Id")]
-		public int Id { get; set; }
+		public string Id { get; set; }
 		//[Required, Column("Part_Name")]
 		//public string Name { get; set; }
 		//[Required, Column("Part_Desc")]
@@ -19,6 +19,6 @@ namespace BlazorApp1.Components.Pages.Classes
 		[Required, Column("Part_Cost")]
 		public decimal Cost { get; set; }
 		[Required, Column("Location_Id")]
-		public int LocationID { get; set; }
+		public string LocationID { get; set; }
 	}
 }

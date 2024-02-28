@@ -1,0 +1,45 @@
+﻿@page "/Database"
+@using Microsoft.EntityFrameworkCore
+@using BlazorApp1.Components.Pages.Classes
+
+<PageTitle>Database</PageTitle>
+<div id="heading-container">
+    <h1>Database</h1>
+    <label for="locations">Choose a Location:</label>
+    <select name="locations" id="locations">
+        <option value="north-east">North-East</option>
+        <option value="north-west">North-West</option>
+        <option value="south-east">South-East</option>
+        <option value="south-west">South-West</option>
+        <option value="china">China</option>
+    </select>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>VendorID</th>
+            <th>LocationID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Part part in DbContext.Parts)
+        {
+            <tr>
+                <td>@part.Id</td>
+                <td>@part.Quantity</td>
+                <td>@part.Cost</td>
+                <td>@part.VendorID</td>
+                <td>@part.LocationID</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+
+}
+
+
+

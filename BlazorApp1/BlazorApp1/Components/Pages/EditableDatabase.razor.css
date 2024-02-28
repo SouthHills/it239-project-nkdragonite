@@ -1,0 +1,57 @@
+﻿#locations {
+    margin-left: 150px;
+    float: left;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: solid #d9d9d9;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+    #locations:hover {
+        background-color: #f2f2f2;
+    }
+
+h1 {
+    padding-bottom: 40px;
+    float: right;
+    margin-right: 650px;
+    text-align: center;
+}
+
+input, label {
+    margin-left: 150px;
+    display: block;
+}
+
+table {
+    width: 1200px;
+    table-layout: fixed;
+    box-shadow: 3px 6px 3px #bebebf;
+    border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+thead {
+    height: 40px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #eaeaea;
+}

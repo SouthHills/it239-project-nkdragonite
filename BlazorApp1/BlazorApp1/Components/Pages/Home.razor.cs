@@ -22,7 +22,6 @@ namespace BlazorApp1.Components.Pages
 		}
 		public string LogIn()
 		{
-			return "correct";
 			foreach(Employee emp in DbContext.Employees)
 			{
 				if(emp.FName + " " + emp.LName == Username)
