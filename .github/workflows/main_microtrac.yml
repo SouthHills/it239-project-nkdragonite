@@ -40,13 +40,22 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: ASP-app
       
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DA285B5718B5442BB6706E0667FFD8EC }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F4028AF8694547D08BADC73CCC0F457B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A001DC5B735B40F5A36F609672FA7A2B }}
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -54,4 +63,4 @@ jobs:
           app-name: 'microtrac'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF64489961874299BFE2AC9080323326 }}
+          
