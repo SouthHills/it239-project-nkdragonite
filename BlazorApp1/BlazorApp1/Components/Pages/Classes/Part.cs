@@ -10,19 +10,19 @@ namespace BlazorApp1.Components.Pages.Classes
         public int Id { get; set; }
 		
         [Column("Part_Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 	
         [Column("Vendor_Id")]
-        public string VendorID { get; set; }
+        public string? VendorID { get; set; }
 		
         [Column("Part_Quantity")]
-        public string Quantity { get; set; }
+        public string? Quantity { get; set; }
 		
         [Column("Part_Cost")]
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
 		
         [Column("Location_Id")]
-        public string LocationID { get; set; }
+        public string? LocationID { get; set; }
     
     }
 }

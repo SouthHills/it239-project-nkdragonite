@@ -21,7 +21,6 @@ namespace BlazorApp1
             {
                 options.UseSqlServer(builder.Configuration
                 .GetConnectionString("DefaultConnection")!);
-                //options.UseLazyLoadingProxies();
 #if DEBUG
                 options.EnableSensitiveDataLogging();
                 options.EnableDetailedErrors();
