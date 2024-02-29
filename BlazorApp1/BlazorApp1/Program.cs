@@ -42,8 +42,6 @@ namespace BlazorApp1
             app.UseStaticFiles();
             app.UseAntiforgery();
 
-            //TEst
-
             app.MapRazorComponents<App>()
                 .AddInteractiveServerRenderMode();
 
