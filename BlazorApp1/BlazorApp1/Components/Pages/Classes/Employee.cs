@@ -16,7 +16,7 @@ namespace BlazorApp1.Components.Pages.Classes
 		[Required, Column("EMPLOYEE_LEVEL")]
 		public string Permission { get; set; }
 		[Required, Column("LOCATION_ID")]
-		public Location Location { get; set; }
+		public string Location { get; set; }
 		[Required, Column("EMPLOYEE_PASSWORD")]
 		public string Password { get; set; }
 		[Required, Column("EMPLOYEE_SALT")]

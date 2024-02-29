@@ -1,4 +1,5 @@
-﻿#locations {
+﻿#locations
+{
     margin-left: 150px;
     float: left;
     background-color: white;
@@ -11,20 +12,19 @@
     margin-bottom: 20px;
 }
 
-    #locations:hover {
-        background-color: #f2f2f2;
-    }
+#locations:hover{
+    background-color: #f2f2f2;
+}
 
 h1 {
     padding-bottom: 40px;
-    float: right;
-    margin-right: 650px;
-    text-align: center;
-}
 
+    text-align: center;
+
+}
 input, label {
     margin-left: 150px;
-    display: block;
+    display:block;
 }
 
 table {
@@ -40,8 +40,12 @@ table {
 thead {
     height: 40px;
 }
-
-th, td {
+table input {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+th, td{
     text-align: left;
     padding: 8px;
     border: 1px solid #ddd;
