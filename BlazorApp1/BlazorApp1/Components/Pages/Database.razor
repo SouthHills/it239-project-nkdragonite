@@ -3,17 +3,28 @@
 @using BlazorApp1.Components.Pages.Classes
 
 <PageTitle>Database</PageTitle>
-<div id="heading-container">
-    <h1>Database</h1>
-    <label for="locations">Choose a Location:</label>
-    <select name="locations" id="locations">
-        <option value="north-east">North-East</option>
-        <option value="north-west">North-West</option>
-        <option value="south-east">South-East</option>
-        <option value="south-west">South-West</option>
-        <option value="china">China</option>
-    </select>
-</div>
+
+     @if(Program.Location == "101")
+     {
+         <h1>South-East</h1>
+     }
+     @if(Program.Location == "102") 
+     {
+         <h1>South-West</h1>
+     }
+     @if(Program.Location == "103")
+     {
+         <h1>North-East</h1>
+     }
+     @if(Program.Location == "104")
+     {
+         <h1>North-West</h1>
+     }
+     @if(Program.Location == "105")
+     {
+        <h1>Taiwan</h1>
+     }
+
 <table>
     <thead>
         <tr>

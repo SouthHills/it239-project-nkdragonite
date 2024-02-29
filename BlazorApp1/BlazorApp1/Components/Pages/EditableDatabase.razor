@@ -6,11 +6,10 @@
 <PageTitle>Database</PageTitle>
 <div id="heading-container">
 </div>
-<h1>Database</h1>
+<!--<h1>Database</h1>-->
 <table>
     <thead>
     <tr>
- 
         <th>Id</th>
         <th>Name</th>
         <th>Quantity</th>
@@ -20,7 +19,7 @@
     </tr>
     </thead>
     <tbody>
-    <h3>South-West</h3>
+    <h3>South-East</h3>
     @foreach (Part part in DbContext.Parts)
 
         if (part.LocationID == "101")
@@ -34,11 +33,10 @@
                 <td><input type="text" @bind="part.LocationID"/></td>
             </tr>
         }
-    
     </tbody>
 </table>
 
-        <h3>North-West</h3>
+        <h3>South-West</h3>
         <table>
             <thead>
             <tr>
@@ -101,7 +99,7 @@
     </tbody>
 </table>
 
-        <h3>South-East</h3>
+        <h3>North-West</h3>
 <table>
     <thead>
     <tr>
@@ -165,7 +163,6 @@
 <table>
     <thead>
     <tr>
-         
         <th>Id</th>
         <th>Name</th>
         <th>Quantity</th>
@@ -182,31 +179,20 @@
             <td><input type="text" @bind="newPart.Cost" /></td>
             <td><input type="text" @bind="newPart.VendorID" /></td>
             <td><input type="text" @bind="newPart.LocationID" /></td>
-      
         </tr>
     </tbody>
 </table>
 <button @onclick="SaveChanges">Save Changes</button>
 @code {
-    public Part newPart = new();
-    public string NewName { get; set; }
-    public string NewQuantity { get; set; }
-    public decimal NewCost { get; set; }
-    public string NewVendor { get; set; }
-    public string NewLocation { get; set; }
-    protected override void OnInitialized()
+    Part newPart = new();
+
+    private async Task SaveChanges()
     {
         newPart.Id = DbContext.Parts.Max(p => p.Id) + 1;
-    }
-    public void SaveChanges()
-    {
-        newPart.Name = NewName;
-        newPart.Quantity = NewQuantity;
-        newPart.Cost = NewCost;
-        newPart.VendorID = NewVendor;
-        newPart.LocationID = NewLocation;
         DbContext.Parts.Add(newPart);
-        DbContext.SaveChanges();
+        await DbContext.SaveChangesAsync();
+        newPart = new Part();
     }
+
 
 }
