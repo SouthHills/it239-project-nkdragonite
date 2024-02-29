@@ -26,7 +26,7 @@ jobs:
       run: |
           dotnet restore ./BlazorApp1/BlazorApp1.sln
           dotnet build --configuration Release ./BlazorApp1/BlazorApp1.sln
-          dotnet publish LemonIndustries/LemonIndustries.sln
+          dotnet publish ./BlazorApp1/BlazorApp1.sln
     - name: 'Web App Deployment'
       uses: azure/webapps-deploy@v3
       with: 
