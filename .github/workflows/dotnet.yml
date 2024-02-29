@@ -23,8 +23,9 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore BlazorApp1
+      working-directory: ./it239project/BlazorApp1/
     - name: Build
-      run: dotnet build --no-restore BlazorApp1/BlazorApp1.sln
+      run: dotnet build --no-restore BlazorApp1.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
