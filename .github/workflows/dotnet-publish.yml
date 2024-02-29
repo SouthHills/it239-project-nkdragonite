@@ -15,14 +15,18 @@ jobs:
     steps:
       
     - uses: actions/checkout@v4
-    - name: Setup dotnet 8.0.x
+    
+    # Setup .NET Core SDK
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0.x'
-    - name: Build with dotnet
-      run: dotnet build BlazorApp1/BlazorApp1.sln
-    - name: Publish app
-      run: dotnet publish BlazorApp1/BlazorApp1.sln
+          dotnet-version: 8.0.x
+          
+    - name: dotnet build and publish
+      run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
     - name: 'Web App Deployment'
       uses: azure/webapps-deploy@v3
       with: 
