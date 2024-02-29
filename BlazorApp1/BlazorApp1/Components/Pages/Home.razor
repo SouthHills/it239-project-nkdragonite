@@ -2,22 +2,26 @@
 
 <PageTitle>Home</PageTitle>
 @inject NavigationManager NavigationManager
+<form onsubmit="VerifyLogin">
     <div class="log-in-container">
         <h1 id ="LogIn">Login</h1>
         <label id="username_label" for="username">Username</label>
-        <input id="username" @bind="Username"/>
+        <input id="username"/>
          <label id="password_label" for="password">Password</label>
-        <input id="password" @bind="Password" />
-        <button type="submit" @onclick="() => LoginNavigate()">Log In</button>
+        <input id="password"/>
+        <button type="submit" @onclick="() => Login()">Log In</button>
         
 
     </div>
-    <p id="test" @bind="TestString">Test</p>
+</form>
+<!--@foreach (Classes.Part part in DbContext.Parts)
+{
+    <p>part.Id</p>
+}-->
 @code{
 
-    private async void LoginNavigate()
+    private async Task Login()
     {
-        Console.WriteLine("LoginNavigate() called");
         string result = LogIn();
         if(result == "correct")
         {
