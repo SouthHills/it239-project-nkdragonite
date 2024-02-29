@@ -2,11 +2,13 @@
 @using static BlazorApp1.AppDbContext
 @using Microsoft.EntityFrameworkCore
 @using BlazorApp1.Components.Pages.Classes
+@rendermode InteractiveServer
 
 <PageTitle>Database</PageTitle>
 <div id="heading-container">
 </div>
 <!--<h1>Database</h1>-->
+    <h3>South-East</h3>
 <table>
     <thead>
     <tr>
@@ -19,8 +21,9 @@
     </tr>
     </thead>
     <tbody>
-    <h3>South-East</h3>
+
     @foreach (Part part in DbContext.Parts)
+    {
 
         if (part.LocationID == "101")
         {
@@ -33,6 +36,7 @@
                 <td><input type="text" @bind="part.LocationID"/></td>
             </tr>
         }
+    }
     </tbody>
 </table>
 
@@ -182,17 +186,4 @@
         </tr>
     </tbody>
 </table>
-<button @onclick="SaveChanges">Save Changes</button>
-@code {
-    Part newPart = new();
-
-    private async Task SaveChanges()
-    {
-        newPart.Id = DbContext.Parts.Max(p => p.Id) + 1;
-        DbContext.Parts.Add(newPart);
-        await DbContext.SaveChangesAsync();
-        newPart = new Part();
-    }
-
-
-}
+<button @onclick="() => SaveChanges()">Save Changes</button>
